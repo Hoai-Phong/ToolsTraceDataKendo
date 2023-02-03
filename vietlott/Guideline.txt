@@ -1,0 +1,5 @@
+﻿Generate 
+Scaffold-DbContext "Server=HOAIPHONG;Database=vietlott;User Id=sa;Password=sa;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -ContextDir "F:\ToolTraceKendo\vietlott\DataAccess" -Force -OutputDir "F:\ToolTraceKendo\vietlott\Entities" -Namespace "vietlott"
+
+Update 
+	Scaffold-DbContext "Server=192.168.200.18;Database=vietlott;User Id=vt001;Password=I00tv;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -ContextDir "F:\ToolTraceKendo\vietlott\DataAccess" -Force -OutputDir "F:\ToolTraceKendo\vietlott\Entities" -Namespace "vietlott"
