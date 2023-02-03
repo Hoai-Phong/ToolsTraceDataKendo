@@ -10,7 +10,7 @@ Startup startup = new Startup();
 startup.ConfigureServices(services);
 IServiceProvider serviceProvider = services.BuildServiceProvider();
 serviceProvider.GetService<KendoServices>()!.Run();
-serviceProvider.GetService<KendoServices>()!.SetInterval(action: () => serviceProvider.GetService<KendoServices>()!.Run(), TimeSpan.FromMinutes(4));
+serviceProvider.GetService<KendoServices>()!.SetInterval(action: () => serviceProvider.GetService<KendoServices>()!.Run(), TimeSpan.FromMinutes(2));
 Thread.Sleep(TimeSpan.FromDays(1));
 Console.WriteLine(CommonConst.Message_Program_Finished);
 Console.WriteLine(CommonConst.Message_Name_Application_End);

@@ -64,9 +64,12 @@ namespace vietlott.Services
                     {
                         var isCheckData = context.ResultKenos.Where(n => n.LiveKy == model.LiveKy).FirstOrDefault();
                         DateTime dtNow = DateTime.Now;
-                        var dtStr = resultKendoReponse.next_date;
-                        DateTime dtNext_live = DateTime.Parse(dtStr!);
-                        if (dtNow > dtNext_live && isCheckData == null)
+                        var dtStr = resultKendoReponse.live_date;
+                        DateTime dtlive = DateTime.Parse(dtStr!);
+                        Console.WriteLine("\n Next_ky: " + resultKendoReponse.next_ky);
+                        Console.WriteLine("DateNow: " + dtNow);
+                        Console.WriteLine("live_date: " + dtlive);
+                        if (dtNow > dtlive && isCheckData == null)
                         {
                             Console.WriteLine(" \n Added Successfully ResultKenos");
                             context.Entry(model).State = EntityState.Added;
