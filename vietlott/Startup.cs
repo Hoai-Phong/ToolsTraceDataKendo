@@ -1,14 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Vietlott.DataAccess.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NLog.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using vietlott.Services;
-using vietlott.Settings;
+using Vietlott.Services.Settings;
+using Vietlott.Services;
+using Vietlott.DataAccess;
 
 namespace vietlott
 {
@@ -26,15 +23,14 @@ namespace vietlott
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<VietlottContext>(
-                options => options.UseSqlServer(
-                Configuration.GetConnectionString("VietlottConnection"))
+                options => options.UseSqlServer(Configuration.GetConnectionString("VietlottConnection"))
                 .EnableSensitiveDataLogging()
                 .EnableDetailedErrors()
 
             );
 
             services.AddSingleton<IConfigurationRoot>(Configuration);
-            services.AddSingleton<IToolConfiguration, ToolConfiguration>();
+            services.AddSingleton<ToolConfiguration>();
             services.AddHttpClient();
             services.AddLogging(loggingBuilder =>
             {

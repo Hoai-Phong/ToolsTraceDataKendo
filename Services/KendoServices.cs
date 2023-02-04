@@ -2,23 +2,24 @@
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using RestSharp;
-using System.Globalization;
-using System.Text.Json;
-using vietlott.Constants;
-using vietlott.Response;
-using vietlott.Settings;
-namespace vietlott.Services
+using Vietlott.Services.Constants;
+using Vietlott.Services.Settings;
+using Vietlott.Services.Models;
+using Vietlott.DataAccess.Entities;
+using Vietlott.DataAccess;
+
+namespace Vietlott.Services
 {
-    internal class KendoServices
+    public class KendoServices
     {
         private readonly ILogger<KendoServices> _logger;
-        private readonly IToolConfiguration _config;
+        private readonly ToolConfiguration _config;
         private readonly VietlottContext _context;
         private RestClient _httpRestClient;
         private static readonly Random getrandom = new Random();
         private List<int> GuessResult_Kendo = new List<int>();
         public IEnumerable<ResultKendoReponse>? resultKendoReponse { get; set; }
-        public KendoServices(IToolConfiguration configurationRoot, ILogger<KendoServices> logger, VietlottContext context)
+        public KendoServices(ToolConfiguration configurationRoot, ILogger<KendoServices> logger, VietlottContext context)
         {
             _logger = logger;
             _config = configurationRoot;

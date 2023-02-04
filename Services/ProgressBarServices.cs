@@ -1,6 +1,5 @@
-﻿using System;
-using System.Text;
-using System.Threading;
+﻿using System.Text;
+namespace Vietlott.Services;
 public class ProgressBarServices : IDisposable, IProgress<double>
 {
     private const int blockCount = 100;
@@ -29,7 +28,7 @@ public class ProgressBarServices : IDisposable, IProgress<double>
         value = Math.Max(0, Math.Min(1, value));
         Interlocked.Exchange(ref currentProgress, value);
     }
-    private void TimerHandler(object state)
+    private void TimerHandler(object? state)
     {
         lock (timer)
         {

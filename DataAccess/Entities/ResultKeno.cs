@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace vietlott;
-
+﻿namespace Vietlott.DataAccess.Entities;
 public partial class ResultKeno
 {
     public int NextKy { get; set; }

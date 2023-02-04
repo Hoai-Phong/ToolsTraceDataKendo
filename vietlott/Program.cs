@@ -1,8 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Microsoft.Extensions.DependencyInjection;
 using vietlott;
-using vietlott.Constants;
-using vietlott.Services;
+using Vietlott.Services.Constants;
+using Vietlott.Services.Settings;
+using Vietlott.Services;
+
 Console.WriteLine(CommonConst.Message_Name_Application_Start);
 Console.WriteLine(CommonConst.Message_Program_Start);
 IServiceCollection services = new ServiceCollection();

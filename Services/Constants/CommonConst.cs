@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace vietlott.Constants
+﻿namespace Vietlott.Services.Constants
 {
     public class CommonConst
     {
@@ -26,7 +20,7 @@ namespace vietlott.Constants
         public const string Key_Input = "PhysicalPathSettings:Input";
         public const string Key_Output = "PhysicalPathSettings:Output";
         public const string Key_FileNameNotCopy = "Settings:FileNameNotCopy";
-        public const string  Key_FileNameNotDelete = "Settings:FileNameNotDelete";
+        public const string Key_FileNameNotDelete = "Settings:FileNameNotDelete";
         //   
         public const string Message_PhysicalOutPut = "Error: PhysicalOutPut appsettings on the server do not exist.";
         public const string Message_PhysicalInput = "Error: PhysicalInput appsettings on the server do not exist.";

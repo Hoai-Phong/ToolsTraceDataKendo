@@ -1,14 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using vietlott.Constants;
+using Vietlott.Services.Constants;
 
-namespace vietlott.Settings
+namespace Vietlott.Services.Settings
 {
-    public class ToolConfiguration : IToolConfiguration
+    public class ToolConfiguration
     {
         IConfigurationRoot _configurationRoot;
         public ToolConfiguration(IConfigurationRoot configurationRoot)
@@ -20,12 +15,5 @@ namespace vietlott.Settings
         public string FileNameNotCopy => _configurationRoot[CommonConst.Key_FileNameNotCopy];
         public string FileNameNotDelete => _configurationRoot[CommonConst.Key_FileNameNotDelete];
     }
-    public interface IToolConfiguration
-    {
-        string PhysicalInput { get; }
-        string PhysicalOutPut { get; }
-        string FileNameNotCopy { get; }
-        string FileNameNotDelete { get; }
-
-    }
+   
 }

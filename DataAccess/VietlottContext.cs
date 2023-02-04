@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Vietlott.DataAccess.Entities;
 
-namespace vietlott;
+namespace Vietlott.DataAccess;
 
 public partial class VietlottContext : DbContext
 {
-    public VietlottContext()
-    {
-    }
+    public VietlottContext() : base() { }
 
     public VietlottContext(DbContextOptions<VietlottContext> options)
         : base(options)
