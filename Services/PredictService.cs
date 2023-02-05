@@ -26,26 +26,30 @@ namespace Vietlott.Services
         public void PredictRandomByDate()
         {
             // Calculate accurate of algorithm
-            var date = DateTime.Today.AddDays(-1);
-            var resultList = _context.KenoResults.Where(i => i.ResultTime > date && i.ResultTime < date.AddDays(1))
+            var fromDate = DateTime.Today.AddDays(-10);
+            var toDate = DateTime.Today.AddDays(-1);
+            for (var date = fromDate; date <= toDate; date = date.AddDays(1))
+            {
+                var resultList = _context.KenoResults.Where(i => i.ResultTime > date && i.ResultTime < date.AddDays(1))
                                                 .OrderBy(i => i.ResultTime)
                                                 .Select(i => i.Result)
                                                 .ToList();
 
-            int nMatch = 0;
-            for (int i = 0; i < resultList.Count; i++)
-            {
-                var predict = PredictRandomByDate(date, i + 1).ToString("00");
-                if (resultList[0].Contains(predict))
-                    nMatch++;
+                int nMatch = 0;
+                for (int i = 0; i < resultList.Count; i++)
+                {
+                    var predict = PredictRandomByDate(date, i + 1).ToString("00");
+                    if (resultList[0].Contains(predict))
+                        nMatch++;
+                }
+                var accurate = (double)nMatch * 100 / resultList.Count;
+                // Show result
+                Console.WriteLine("Predict random by date");
+                Console.WriteLine($"  Date: {date.ToShortDateString()}");
+                Console.WriteLine($"  Number of results: {resultList.Count}");
+                Console.WriteLine($"  Number of matched: {nMatch}");
+                Console.WriteLine($"  Accurate: {accurate:00.0}%");
             }
-            var accurate = (double)nMatch * 100 / resultList.Count;
-            // Show result
-            Console.WriteLine("Predict random by date");
-            Console.WriteLine($"  Date: {date.ToShortDateString()}");
-            Console.WriteLine($"  Number of results: {resultList.Count}");
-            Console.WriteLine($"  Number of matched: {nMatch}");
-            Console.WriteLine($"  Accurate: {accurate:00.0}%");
         }
 
         public int PredictRandomByDate(DateTime date, int nkyInDate)
@@ -53,7 +57,7 @@ namespace Vietlott.Services
             var hash = date.Date.GetHashCode();
             Random rand = new Random(hash);
             var predict = 0;
-            for(int i = 0; i < nkyInDate; i++)
+            for (int i = 0; i < nkyInDate; i++)
             {
                 predict = rand.Next(80) + 1;
             }
