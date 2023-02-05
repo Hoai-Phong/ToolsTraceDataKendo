@@ -2,9 +2,9 @@
 {
     public class CommonConst
     {
-        public const string Message_Name_Application_Start = "**-------------------------START TOOL -------------------------**";
+        public const string Message_Name_Application_Start = "**-------------------------START TOOL-------------------------**";
         public const string Message_Name_Application_End = "**-------------------------END TOOL-------------------------**";
-        public const string Message_Name_Application_Copyright = "**------Copyright © 2022 || Desgin By HoaiPhong-------**";
+        public const string Message_Name_Application_Copyright = "**------Copyright © 2022 || Desgin By HoaiPhong & DangPham-------**";
         // Message_Program
         public const string Message_Program_Start = "Program has started.";
         public const string Message_Program_Finished = "Successfully:  Program has finished.";

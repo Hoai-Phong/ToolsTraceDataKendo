@@ -5,21 +5,13 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <ApplicationIcon>img.ico</ApplicationIcon>
+    <RootNamespace>Vietlott.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Request\**" />
-    <EmbeddedResource Remove="Request\**" />
-    <None Remove="Request\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="img.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="6.1.0" />
     <PackageReference Include="NLog" Version="5.1.0" />
     <PackageReference Include="NLog.Extensions.Logging" Version="5.2.0" />

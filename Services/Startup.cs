@@ -1,5 +1,4 @@
-﻿using Vietlott.DataAccess.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NLog.Extensions.Logging;
@@ -7,7 +6,7 @@ using Vietlott.Services.Settings;
 using Vietlott.Services;
 using Vietlott.DataAccess;
 
-namespace vietlott
+namespace Vietlott.Services
 {
     public class Startup
     {
