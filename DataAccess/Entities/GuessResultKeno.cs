@@ -1,4 +1,7 @@
-﻿namespace Vietlott.DataAccess.Entities;
+﻿using System;
+using System.Collections.Generic;
+
+namespace Vietlott.DataAccess.Entities;
 
 public partial class GuessResultKeno
 {

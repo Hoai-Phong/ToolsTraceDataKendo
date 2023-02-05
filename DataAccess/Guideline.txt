@@ -3,3 +3,4 @@ Scaffold-DbContext "Server=HOAIPHONG;Database=vietlott;User Id=sa;Password=sa;Tr
 
 Update 
 	Scaffold-DbContext "Server=192.168.200.18;Database=vietlott;User Id=vt001;Password=I00tv;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -ContextDir "F:\ToolTraceKendo\vietlott\DataAccess" -Force -OutputDir "F:\ToolTraceKendo\vietlott\Entities" -Namespace "vietlott"
+	Scaffold-DbContext "Server=192.168.200.18;Database=vietlott;User Id=vt001;Password=I00tv;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -ContextDir "C:\Users\ASV_User1\Desktop\Keno\Code\github\DataAccess" -Force -OutputDir "C:\Users\ASV_User1\Desktop\Keno\Code\github\DataAccess\Entities" -Namespace "Vietlott.DataAccess"

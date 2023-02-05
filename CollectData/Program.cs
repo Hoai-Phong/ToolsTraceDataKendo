@@ -13,9 +13,8 @@ startup.ConfigureServices(services);
 IServiceProvider serviceProvider = services.BuildServiceProvider();
 
 // Main function 
-
-
-
+var kenoService = serviceProvider.GetService<CollectResultService>();
+kenoService!.CollectResultFromMinhChinhDotCom();
 
 // Console: Application end information
 Console.WriteLine(CommonConst.Message_Program_Finished);
