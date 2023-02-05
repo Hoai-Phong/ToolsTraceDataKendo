@@ -28,6 +28,21 @@ namespace Vietlott.Services
             _httpClientFactory = httpClientFactory;
         }
 
+        public void LiveResultFromMinhChinhDotCom()
+        {            
+            while (true)
+            {
+                var date = DateTime.Now;                
+                var result = CollectResultFromMinhChinhDotCom(date, 1);
+                int nRow = 0;
+                if (result.Any())
+                    nRow = InsertKenoResult(result);                
+                Console.WriteLine($"[{date.ToString("dd-MM-yyyy HH:mm:ss")}] {nRow} new rows.");
+                Thread.Sleep(20000);
+            }
+
+        }
+
         public void CollectResultFromMinhChinhDotCom()
         {
             var date = DateTime.Today;
@@ -46,6 +61,21 @@ namespace Vietlott.Services
                 date = date.AddDays(-1);
             }
 
+        }
+
+        public void CollectResultFromMinhChinhDotCom(DateTime fromDate, DateTime toDate)
+        {
+            var date = toDate;            
+            while (date >= fromDate)
+            {
+                Console.WriteLine($"-Date: {date.ToShortDateString()}");
+                var result = CollectResultFromMinhChinhDotCom(date);
+                if (result.Any())
+                {
+                    InsertKenoResult(result);                    
+                }                
+                date = date.AddDays(-1);
+            }
         }
 
         public IList<KenoResult> CollectResultFromMinhChinhDotCom(DateTime date)
@@ -116,18 +146,14 @@ namespace Vietlott.Services
         }
 
         #region Support functions
-        private void InsertKenoResult(IEnumerable<KenoResult> result)
+        private int InsertKenoResult(IEnumerable<KenoResult> result)
         {
             foreach(var item in result)
             {
-                if (_context.KenoResults.Any(i => i.Ky == item.Ky))
-                    Console.WriteLine($"---Dupplicated: {item.Ky}");
-                else
-                {
-                    _context.KenoResults.Add(item);
-                }
-                _context.SaveChanges();                
+                if (!_context.KenoResults.Any(i => i.Ky == item.Ky))                
+                    _context.KenoResults.Add(item);                                
             }
+            return _context.SaveChanges();
         }
         #endregion
     }

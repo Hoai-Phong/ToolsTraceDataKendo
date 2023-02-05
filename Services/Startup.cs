@@ -38,6 +38,7 @@ namespace Vietlott.Services
 
             services.AddTransient<KendoServices>();
             services.AddTransient<CollectResultService>();
+            services.AddTransient<AnalyseService>();
         }
     }
 }

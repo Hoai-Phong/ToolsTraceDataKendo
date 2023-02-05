@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{5B89364F-FF13-47F3-A585-6ED924411272}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectData", "CollectData\CollectData.csproj", "{545A46E3-97D8-4FBB-AB3A-869DE06A982B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollectData", "CollectData\CollectData.csproj", "{545A46E3-97D8-4FBB-AB3A-869DE06A982B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analyse", "Analyse\Analyse.csproj", "{D9ADF240-AAB1-46A6-8D63-E682352B4B77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{545A46E3-97D8-4FBB-AB3A-869DE06A982B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{545A46E3-97D8-4FBB-AB3A-869DE06A982B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{545A46E3-97D8-4FBB-AB3A-869DE06A982B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9ADF240-AAB1-46A6-8D63-E682352B4B77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9ADF240-AAB1-46A6-8D63-E682352B4B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9ADF240-AAB1-46A6-8D63-E682352B4B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9ADF240-AAB1-46A6-8D63-E682352B4B77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
