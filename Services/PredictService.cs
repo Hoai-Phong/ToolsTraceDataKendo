@@ -57,7 +57,7 @@ namespace Vietlott.Services
             var hash = date.Date.GetHashCode();
             Random rand = new Random(hash);
             var predict = 0;
-            for (int i = 0; i < nkyInDate; i++)
+            for (int i = 0; i < nkyInDate * 80; i++)
             {
                 predict = rand.Next(80) + 1;
             }

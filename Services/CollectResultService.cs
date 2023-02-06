@@ -36,12 +36,27 @@ namespace Vietlott.Services
                 var result = CollectResultFromMinhChinhDotCom(date, 1);
                 int nRow = 0;
                 if (result.Any())
-                    nRow = InsertKenoResult(result);                
-                Console.WriteLine($"[{date.ToString("dd-MM-yyyy HH:mm:ss")}] {nRow} new rows.");
-                Thread.Sleep(20000);
+                    nRow = InsertKenoResult(result);
+                if (nRow == 0)
+                {
+                    Console.Write("\r");
+                    Console.Write("                                                              ");
+                    Console.Write("\r");
+                    Console.Write($"[{date.ToString("dd-MM-yyyy HH:mm:ss")}] None....");                    
+                }
+                else
+                {
+                    Console.Write("\r");
+                    Console.Write("                                                              ");
+                    Console.Write("\r");
+                    Console.Write($"[{date.ToString("dd-MM-yyyy HH:mm:ss")}] {nRow} records.");                    
+                }
+                Thread.Sleep(30000);
             }
 
         }
+
+
 
         public void CollectResultFromMinhChinhDotCom()
         {
@@ -150,8 +165,14 @@ namespace Vietlott.Services
         {
             foreach(var item in result)
             {
-                if (!_context.KenoResults.Any(i => i.Ky == item.Ky))                
-                    _context.KenoResults.Add(item);                                
+                if (!_context.KenoResults.Any(i => i.Ky == item.Ky))
+                {
+                    _context.KenoResults.Add(item);
+                    Console.Write("\r");
+                    Console.Write("                                                              ");
+                    Console.Write("\r");
+                    Console.WriteLine(item.ToString());
+                }
             }
             return _context.SaveChanges();
         }
