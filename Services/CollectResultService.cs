@@ -10,6 +10,7 @@ using Vietlott.Services.Models;
 using Vietlott.Services.Settings;
 using HtmlAgilityPack;
 using System.Globalization;
+using System.Collections.Concurrent;
 
 namespace Vietlott.Services
 {
@@ -42,7 +43,7 @@ namespace Vietlott.Services
                     Console.Write("\r");
                     Console.Write("                                                              ");
                     Console.Write("\r");
-                    Console.Write($"[{date.ToString("dd-MM-yyyy HH:mm:ss")}] None....");                    
+                    Console.Write($"[{date.ToString("dd-MM-yyyy HH:mm:ss")}] Collecting....");                    
                 }
                 else
                 {
@@ -51,12 +52,10 @@ namespace Vietlott.Services
                     Console.Write("\r");
                     Console.Write($"[{date.ToString("dd-MM-yyyy HH:mm:ss")}] {nRow} records.");                    
                 }
-                Thread.Sleep(30000);
+                Thread.Sleep(10000);
             }
 
         }
-
-
 
         public void CollectResultFromMinhChinhDotCom()
         {
@@ -80,6 +79,7 @@ namespace Vietlott.Services
 
         public void CollectResultFromMinhChinhDotCom(DateTime fromDate, DateTime toDate)
         {
+            var obj = new object();
             var date = toDate;            
             while (date >= fromDate)
             {
@@ -87,27 +87,39 @@ namespace Vietlott.Services
                 var result = CollectResultFromMinhChinhDotCom(date);
                 if (result.Any())
                 {
-                    InsertKenoResult(result);                    
-                }                
+                    new Thread(() =>
+                    {
+                        lock (obj)
+                        {
+                            int nRec = InsertKenoResult(result, true);
+                            Console.WriteLine($"{nRec} rows was inserted.");
+                        }
+                    }).Start();
+                }
                 date = date.AddDays(-1);
             }
         }
 
         public IList<KenoResult> CollectResultFromMinhChinhDotCom(DateTime date)
         {
-            var list = new List<KenoResult>();
+            var list = new ConcurrentBag<KenoResult>();            
             int page = 1;
-            while (true)
-            {
-                Console.WriteLine($"--Page: {page}");
-                var kenos = CollectResultFromMinhChinhDotCom(date, page);                
-                if (kenos.Any())
-                    list.AddRange(kenos);
-                else
-                    break;
-                page++;
+            bool isRun = true;
+            while (isRun)
+            {   
+                Parallel.For(0, 8, (i) =>
+                {
+                    int p = page + i;                    
+                    var kenos = CollectResultFromMinhChinhDotCom(date, p);
+                    Console.WriteLine($"--Page: {p} - {kenos.Count} records");
+                    if (kenos.Any())
+                        foreach (var k in kenos) list.Add(k);
+                    else
+                        isRun = false;
+                });                
+                page += 4;
             }
-            return list;
+            return list.ToList();
         }
 
         public IList<KenoResult> CollectResultFromMinhChinhDotCom(DateTime date, int page)
@@ -161,21 +173,26 @@ namespace Vietlott.Services
         }
 
         #region Support functions
-        private int InsertKenoResult(IEnumerable<KenoResult> result)
+
+        private int InsertKenoResult(IEnumerable<KenoResult> result, bool isSilent = false)
         {
-            foreach(var item in result)
+            foreach (var item in result)
             {
                 if (!_context.KenoResults.Any(i => i.Ky == item.Ky))
                 {
                     _context.KenoResults.Add(item);
-                    Console.Write("\r");
-                    Console.Write("                                                              ");
-                    Console.Write("\r");
-                    Console.WriteLine(item.ToString());
+                    if (!isSilent)
+                    {
+                        Console.Write("\r");
+                        Console.Write("                                                              ");
+                        Console.Write("\r");
+                        Console.WriteLine(item.ToString());
+                    }
                 }
             }
             return _context.SaveChanges();
         }
+       
         #endregion
     }
 }

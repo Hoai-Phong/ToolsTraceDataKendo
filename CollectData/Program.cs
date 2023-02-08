@@ -14,7 +14,7 @@ IServiceProvider serviceProvider = services.BuildServiceProvider();
 
 // Main function 
 var kenoService = serviceProvider.GetService<CollectResultService>();
-kenoService!.LiveResultFromMinhChinhDotCom();
+kenoService!.CollectResultFromMinhChinhDotCom(new DateTime(2020, 08, 27), new DateTime(2020, 8, 28));
 
 // Console: Application end information
 Console.WriteLine(CommonConst.Message_Program_Finished);

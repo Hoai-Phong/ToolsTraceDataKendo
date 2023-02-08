@@ -42,6 +42,21 @@ namespace Vietlott.Services
 
         }
 
+        public void FindMissingKy()
+        {
+            var kyList = _context.KenoResults.Select(i => i.Ky).OrderBy(i => i).ToArray();
+            int prev = 0;
+            foreach(var ky in kyList)
+            {
+                for(int i = prev + 1; i < ky; i++)
+                {
+                    Console.WriteLine("Missing ky {0}", i);
+                }
+
+                prev = ky;
+            }
+        }
+
         #region Support functions
         private int[] BuildDistribution()
         {
