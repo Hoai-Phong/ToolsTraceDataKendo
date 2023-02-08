@@ -10,10 +10,4 @@ public partial class KenoResult
     public DateTime ResultTime { get; set; }
 
     public string Result { get; set; } = null!;
-
-    public override string ToString()
-    {
-        return $"[{Ky}] [{ResultTime.ToString("yyyy/MM/dd HH:mm")}] {Result}";
-    }
-
 }

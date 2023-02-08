@@ -15,7 +15,7 @@ namespace Vietlott.Services
         private readonly ToolConfiguration _config;
         private readonly VietlottContext _context;
 
-        public PredictService(ILogger<PredictService> logger, ToolConfiguration config, VietlottContext context, IHttpClientFactory httpClientFactory = null)
+        public PredictService(ILogger<PredictService> logger, ToolConfiguration config, VietlottContext context)
         {
             _logger = logger;
             _config = config;

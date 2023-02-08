@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Vietlott.DataAccess.Entities;
+namespace Vietlott.DataAccess.Entities; 
 
 public partial class ResultKeno
 {

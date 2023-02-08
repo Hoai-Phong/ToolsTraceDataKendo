@@ -14,7 +14,7 @@ IServiceProvider serviceProvider = services.BuildServiceProvider();
 
 // Main function 
 var predictService = serviceProvider.GetService<PredictService>();
-predictService.PredictRandomByDate();
+predictService!.PredictRandomByDate();
 
 // Console: Application end information
 Console.WriteLine(CommonConst.Message_Program_Finished);

@@ -21,7 +21,7 @@ namespace Vietlott.Services
         private readonly VietlottContext _context;
         private readonly IHttpClientFactory _httpClientFactory;
       
-        public CollectResultService(ILogger<CollectResultService> logger, ToolConfiguration config, VietlottContext context, IHttpClientFactory httpClientFactory = null)
+        public CollectResultService(ILogger<CollectResultService> logger, ToolConfiguration config, VietlottContext context, IHttpClientFactory httpClientFactory)
         {
             _logger = logger;
             _config = config;

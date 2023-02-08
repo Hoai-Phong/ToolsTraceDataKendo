@@ -14,7 +14,8 @@ IServiceProvider serviceProvider = services.BuildServiceProvider();
 
 // Main function 
 var analyseService = serviceProvider.GetService<AnalyseService>();
-analyseService!.ShowDistribution();
+//analyseService!.PrepareData();
+analyseService!.DoStatictiscByDayKy();
 
 // Console: Application end information
 Console.WriteLine(CommonConst.Message_Program_Finished);

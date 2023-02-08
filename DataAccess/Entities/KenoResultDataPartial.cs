@@ -1,0 +1,183 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Vietlott.DataAccess.Entities
+{
+    public partial class KenoResultData
+    {
+        public int this[int key]
+        {
+            get
+            {
+                if (key == 01) return N01;
+                if (key == 02) return N02;
+                if (key == 03) return N03;
+                if (key == 04) return N04;
+                if (key == 05) return N05;
+                if (key == 06) return N06;
+                if (key == 07) return N07;
+                if (key == 08) return N08;
+                if (key == 09) return N09;
+                if (key == 10) return N10;
+                if (key == 11) return N11;
+                if (key == 12) return N12;
+                if (key == 13) return N13;
+                if (key == 14) return N14;
+                if (key == 15) return N15;
+                if (key == 16) return N16;
+                if (key == 17) return N17;
+                if (key == 18) return N18;
+                if (key == 19) return N19;
+                if (key == 20) return N20;
+                if (key == 21) return N21;
+                if (key == 22) return N22;
+                if (key == 23) return N23;
+                if (key == 24) return N24;
+                if (key == 25) return N25;
+                if (key == 26) return N26;
+                if (key == 27) return N27;
+                if (key == 28) return N28;
+                if (key == 29) return N29;
+                if (key == 30) return N30;
+                if (key == 31) return N31;
+                if (key == 32) return N32;
+                if (key == 33) return N33;
+                if (key == 34) return N34;
+                if (key == 35) return N35;
+                if (key == 36) return N36;
+                if (key == 37) return N37;
+                if (key == 38) return N38;
+                if (key == 39) return N39;
+                if (key == 40) return N40;
+                if (key == 41) return N41;
+                if (key == 42) return N42;
+                if (key == 43) return N43;
+                if (key == 44) return N44;
+                if (key == 45) return N45;
+                if (key == 46) return N46;
+                if (key == 47) return N47;
+                if (key == 48) return N48;
+                if (key == 49) return N49;
+                if (key == 50) return N50;
+                if (key == 51) return N51;
+                if (key == 52) return N52;
+                if (key == 53) return N53;
+                if (key == 54) return N54;
+                if (key == 55) return N55;
+                if (key == 56) return N56;
+                if (key == 57) return N57;
+                if (key == 58) return N58;
+                if (key == 59) return N59;
+                if (key == 60) return N60;
+                if (key == 61) return N61;
+                if (key == 62) return N62;
+                if (key == 63) return N63;
+                if (key == 64) return N64;
+                if (key == 65) return N65;
+                if (key == 66) return N66;
+                if (key == 67) return N67;
+                if (key == 68) return N68;
+                if (key == 69) return N69;
+                if (key == 70) return N70;
+                if (key == 71) return N71;
+                if (key == 72) return N72;
+                if (key == 73) return N73;
+                if (key == 74) return N74;
+                if (key == 75) return N75;
+                if (key == 76) return N76;
+                if (key == 77) return N77;
+                if (key == 78) return N78;
+                if (key == 79) return N79;
+                if (key == 80) return N80;
+                return 0;
+            }
+            set
+            {
+                if (key == 01) N01 = value;
+                if (key == 02) N02 = value;
+                if (key == 03) N03 = value;
+                if (key == 04) N04 = value;
+                if (key == 05) N05 = value;
+                if (key == 06) N06 = value;
+                if (key == 07) N07 = value;
+                if (key == 08) N08 = value;
+                if (key == 09) N09 = value;
+                if (key == 10) N10 = value;
+                if (key == 11) N11 = value;
+                if (key == 12) N12 = value;
+                if (key == 13) N13 = value;
+                if (key == 14) N14 = value;
+                if (key == 15) N15 = value;
+                if (key == 16) N16 = value;
+                if (key == 17) N17 = value;
+                if (key == 18) N18 = value;
+                if (key == 19) N19 = value;
+                if (key == 20) N20 = value;
+                if (key == 21) N21 = value;
+                if (key == 22) N22 = value;
+                if (key == 23) N23 = value;
+                if (key == 24) N24 = value;
+                if (key == 25) N25 = value;
+                if (key == 26) N26 = value;
+                if (key == 27) N27 = value;
+                if (key == 28) N28 = value;
+                if (key == 29) N29 = value;
+                if (key == 30) N30 = value;
+                if (key == 31) N31 = value;
+                if (key == 32) N32 = value;
+                if (key == 33) N33 = value;
+                if (key == 34) N34 = value;
+                if (key == 35) N35 = value;
+                if (key == 36) N36 = value;
+                if (key == 37) N37 = value;
+                if (key == 38) N38 = value;
+                if (key == 39) N39 = value;
+                if (key == 40) N40 = value;
+                if (key == 41) N41 = value;
+                if (key == 42) N42 = value;
+                if (key == 43) N43 = value;
+                if (key == 44) N44 = value;
+                if (key == 45) N45 = value;
+                if (key == 46) N46 = value;
+                if (key == 47) N47 = value;
+                if (key == 48) N48 = value;
+                if (key == 49) N49 = value;
+                if (key == 50) N50 = value;
+                if (key == 51) N51 = value;
+                if (key == 52) N52 = value;
+                if (key == 53) N53 = value;
+                if (key == 54) N54 = value;
+                if (key == 55) N55 = value;
+                if (key == 56) N56 = value;
+                if (key == 57) N57 = value;
+                if (key == 58) N58 = value;
+                if (key == 59) N59 = value;
+                if (key == 60) N60 = value;
+                if (key == 61) N61 = value;
+                if (key == 62) N62 = value;
+                if (key == 63) N63 = value;
+                if (key == 64) N64 = value;
+                if (key == 65) N65 = value;
+                if (key == 66) N66 = value;
+                if (key == 67) N67 = value;
+                if (key == 68) N68 = value;
+                if (key == 69) N69 = value;
+                if (key == 70) N70 = value;
+                if (key == 71) N71 = value;
+                if (key == 72) N72 = value;
+                if (key == 73) N73 = value;
+                if (key == 74) N74 = value;
+                if (key == 75) N75 = value;
+                if (key == 76) N76 = value;
+                if (key == 77) N77 = value;
+                if (key == 78) N78 = value;
+                if (key == 79) N79 = value;
+                if (key == 80) N80 = value;
+            }
+        }
+
+    }
+}
